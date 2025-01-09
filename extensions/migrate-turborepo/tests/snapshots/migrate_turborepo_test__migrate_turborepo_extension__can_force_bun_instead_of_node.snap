@@ -1,0 +1,11 @@
+---
+source: extensions/migrate-turborepo/tests/migrate_turborepo_test.rs
+expression: "fs::read_to_string(sandbox.path().join(\".moon/tasks/bun.yml\")).unwrap()"
+---
+tasks:
+  build:
+    command: bun run build
+    deps:
+    - ^:build
+    outputs:
+    - dist/**/*

@@ -1,0 +1,42 @@
+---
+source: extensions/migrate-nx/tests/migrate_nx_test.rs
+expression: "fs::read_to_string(sandbox.path().join(\"moon.yml\")).unwrap()"
+---
+language: javascript
+tasks:
+  noop:
+    command: noop
+  run-env:
+    command: echo 'foo'
+    env:
+      BAR: abc
+      FOO: '123'
+      BAZ: 'true'
+    toolchain: system
+  run-env-file:
+    command: echo 'foo'
+    options:
+      envFile: .env.production
+    toolchain: system
+  run-multiple:
+    command: mkdir -p apps/frontend/scripts && touch apps/frontend/scripts/my-script.sh && chmod +x apps/frontend/scripts/my-script.sh
+    toolchain: system
+  run-single:
+    command: ls apps/frontend/src
+    toolchain: system
+  run-with-cwd:
+    command: mkdir -p scripts
+    env:
+      CWD: apps/frontend
+    outputs:
+    - scripts/**/*
+    toolchain: system
+  script:
+    command: yarn run build
+  script-alt:
+    command: yarn run build
+    outputs:
+    - dist
+    - docs
+toolchain:
+  default: node
