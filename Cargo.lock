@@ -2153,7 +2153,7 @@ dependencies = [
 
 [[package]]
 name = "migrate_turborepo_extension"
-version = "0.1.4"
+version = "0.1.5"
 dependencies = [
  "extension_common",
  "extism-pdk",
