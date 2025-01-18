@@ -2775,7 +2775,7 @@ dependencies = [
 
 [[package]]
 name = "python_tool"
-version = "0.12.2"
+version = "0.12.3"
 dependencies = [
  "extism-pdk",
  "proto_pdk",
