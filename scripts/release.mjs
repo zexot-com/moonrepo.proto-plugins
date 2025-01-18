@@ -31,20 +31,21 @@ const { values: args } = parseArgs({
 // Exclude for now since they don't work
 args.exclude.push("ruby_tool");
 
-async function exec(cmd, args, stdio) {
+async function exec(cmd, args, opts = {}) {
   return new Promise((resolve, reject) => {
     let child = spawn(cmd, args, {
       shell: true,
-      stdio: stdio ?? "inherit",
+      stdio: "inherit",
+      ...opts,
     });
     let out = "";
     let err = "";
 
-    child.stdout.on("data", (data) => {
+    child.stdout?.on("data", (data) => {
       out += data;
     });
 
-    child.stderr.on("data", (data) => {
+    child.stderr?.on("data", (data) => {
       err += data;
     });
 
@@ -58,8 +59,8 @@ async function exec(cmd, args, stdio) {
   });
 }
 
-async function runCargo(args, stdio) {
-  return (await exec("cargo", args, stdio)).out;
+async function runCargo(args, opts) {
+  return (await exec("cargo", args, opts)).out;
 }
 
 async function getPackageNames() {
@@ -69,10 +70,9 @@ async function getPackageNames() {
     packages = args.packages;
   } else {
     let metadata = JSON.parse(
-      await runCargo(
-        ["metadata", "--format-version", "1", "--no-deps", "--no-default-features"],
-        "pipe",
-      ),
+      await runCargo(["metadata", "--format-version", "1", "--no-deps", "--no-default-features"], {
+        stdio: "pipe",
+      }),
     );
 
     packages = metadata.packages.map((pkg) => pkg.name);
@@ -117,6 +117,10 @@ for (let pkgName of packages) {
     "-p",
     pkgName,
   ]);
+
+  await new Promise((resolve) => {
+    setTimeout(resolve, 1500);
+  });
 }
 
 console.log(`Released ${packages.length} plugins!`);
