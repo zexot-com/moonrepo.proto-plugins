@@ -36,7 +36,7 @@ pub fn download_prebuilt(
     let env = get_host_environment()?;
 
     check_supported_os_and_arch(
-        "proto",
+        "moon",
         &env,
         permutations! [
             HostOS::Linux => [HostArch::X64, HostArch::Arm64],

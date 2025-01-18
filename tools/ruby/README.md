@@ -1,27 +1,27 @@
-# moon plugin
+# Ruby plugin
 
-moon WASM plugin for [proto](https://github.com/moonrepo/proto).
+Ruby WASM plugin for [proto](https://github.com/moonrepo/proto).
 
 ## Installation
 
 ```shell
-proto install moon
+proto install ruby
 ```
 
 This plugin is built-in to proto, but if you want to override it with an explicit version, add the following to `.prototools`.
 
 ```toml
 [plugins]
-moon = "https://github.com/moonrepo/plugins/releases/download/moon_tool-vX.Y.Z/moon_tool.wasm"
+ruby = "https://github.com/moonrepo/plugins/releases/download/ruby_tool-vX.Y.Z/ruby_tool.wasm"
 ```
 
 ## Configuration
 
-moon plugin does not support configuration.
+Ruby plugin does not support configuration.
 
 ## Hooks
 
-moon plugin does not support hooks.
+Ruby plugin does not support hooks.
 
 ## Contributing
 
@@ -34,6 +34,6 @@ cargo build --target wasm32-wasip1
 Test the plugins by running `proto` commands.
 
 ```shell
-proto install moon-test
-proto versions moon-test
+proto install ruby-test
+proto versions ruby-test
 ```
