@@ -94,7 +94,7 @@ if (packages.length == 0) {
 
 const rl = readline.createInterface({ input, output });
 const answer = await rl.question(
-  `Release (${styleText("yellow", args.bump)}) plugins ${packages.map((pkg) => styleText("cyan", pkg)).join(", ")}? [Y/N]`,
+  `Release (${styleText("yellow", args.bump)}) plugins ${packages.map((pkg) => styleText("cyan", pkg)).join(", ")}? [Y/N] `,
 );
 
 rl.close();
@@ -125,4 +125,4 @@ for (let pkgName of packages) {
   });
 }
 
-console.log(`Released ${styleText("green", packages.length)} plugins!`);
+console.log(`Released ${styleText("green", String(packages.length))} plugins!`);
