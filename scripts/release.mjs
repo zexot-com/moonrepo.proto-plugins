@@ -118,9 +118,11 @@ for (let pkgName of packages) {
     pkgName,
   ]);
 
+  console.log();
+
   await new Promise((resolve) => {
-    setTimeout(resolve, 1500);
+    setTimeout(resolve, 3000);
   });
 }
 
-console.log(`Released ${packages.length} plugins!`);
+console.log(`Released ${styleText("green", packages.length)} plugins!`);
