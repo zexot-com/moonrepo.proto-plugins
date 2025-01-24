@@ -2037,6 +2037,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "just_tool"
+version = "0.1.0"
+dependencies = [
+ "extism-pdk",
+ "proto_pdk",
+ "proto_pdk_test_utils",
+ "schematic",
+ "serde",
+ "starbase_sandbox",
+ "tokio",
+]
+
+[[package]]
 name = "lazy_static"
 version = "1.5.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
