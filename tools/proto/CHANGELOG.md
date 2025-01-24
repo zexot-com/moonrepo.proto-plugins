@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Changelog entry goes here.
+
 ## 0.4.0
 
 #### 🚀 Updates
