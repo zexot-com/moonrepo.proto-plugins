@@ -2038,7 +2038,7 @@ dependencies = [
 
 [[package]]
 name = "just_tool"
-version = "0.1.0"
+version = "1.0.0"
 dependencies = [
  "extism-pdk",
  "proto_pdk",
